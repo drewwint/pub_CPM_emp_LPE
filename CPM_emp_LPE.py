@@ -708,7 +708,7 @@ model_s = GridSearchCV(
 ## AFFECTIVE HIGH POSITIVE MODEL__________________
 
   # adding controls   ## pd.DataFrame(a_hi_pos_edge).mean(axis=1)
-a_hi_pos_edge_c = pd.concat([pd.DataFrame(a_hi_pos_edge),pd.concat([df_hi[["sex", "tanner", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==1]], axis=1).set_index(pd.DataFrame(a_hi_neg_edge).index)],axis=1)
+a_hi_pos_edge_c = pd.concat([pd.DataFrame(a_hi_pos_edge),pd.concat([df_hi[["sex", "tanner", "race", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==1]], axis=1).set_index(pd.DataFrame(a_hi_neg_edge).index)],axis=1)
   # ML model
 
 from joblib import parallel_backend
@@ -858,7 +858,7 @@ plt.tight_layout(),plt.show(), plt.close()
 ## AFFECTIVE HIGH NEGATIVE MODEL_________________________
 
   # adding controls
-a_hi_neg_edge_c = pd.concat([pd.DataFrame(a_hi_neg_edge),pd.concat([df_hi[["sex", "tanner", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==1]], axis=1).set_index(pd.DataFrame(a_hi_neg_edge).index)],axis=1)
+a_hi_neg_edge_c = pd.concat([pd.DataFrame(a_hi_neg_edge),pd.concat([df_hi[["sex", "tanner", "race", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==1]], axis=1).set_index(pd.DataFrame(a_hi_neg_edge).index)],axis=1)
 
   # ML model
 from joblib import parallel_backend
@@ -1002,7 +1002,7 @@ plt.tight_layout(),plt.show(), plt.close()
 ## COGNITIVE HIGH POSITIVE MODEL_______________
 
   # adding controls
-c_hi_pos_edge_c = pd.concat([pd.DataFrame(c_hi_pos_edge),pd.concat([df_hi[["sex", "tanner", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==1]], axis=1).set_index(pd.DataFrame(a_hi_neg_edge).index)],axis=1)
+c_hi_pos_edge_c = pd.concat([pd.DataFrame(c_hi_pos_edge),pd.concat([df_hi[["sex", "tanner", "race", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==1]], axis=1).set_index(pd.DataFrame(a_hi_neg_edge).index)],axis=1)
 
 
 from joblib import parallel_backend
@@ -1067,7 +1067,7 @@ cog_hi_pos_errors
 ## COGNITIVE HIGH NEGATIVE MODEL________________________
 
   # adding controls
-c_hi_neg_edge_c = pd.concat([pd.DataFrame(c_hi_neg_edge),pd.concat([df_hi[["sex", "tanner", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==1]], axis=1).set_index(pd.DataFrame(a_hi_neg_edge).index)],axis=1)
+c_hi_neg_edge_c = pd.concat([pd.DataFrame(c_hi_neg_edge),pd.concat([df_hi[["sex", "tanner", "race", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==1]], axis=1).set_index(pd.DataFrame(a_hi_neg_edge).index)],axis=1)
 
   # ML model
 from joblib import parallel_backend
@@ -1219,7 +1219,7 @@ plt.tight_layout(),plt.show(), plt.close()
 ## Affective LOW positive model____________________________________
 
   # adding controls
-a_lo_pos_edge_c = pd.concat([pd.DataFrame(a_lo_pos_edge),pd.concat([df_lo[["sex", "tanner", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==0]], axis=1).set_index(pd.DataFrame(a_lo_pos_edge).index)],axis=1)
+a_lo_pos_edge_c = pd.concat([pd.DataFrame(a_lo_pos_edge),pd.concat([df_lo[["sex", "tanner", "race", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==0]], axis=1).set_index(pd.DataFrame(a_lo_pos_edge).index)],axis=1)
 
   # ML model
 from joblib import parallel_backend
@@ -1362,7 +1362,7 @@ plt.tight_layout(),plt.show(), plt.close()
 ## AFFECTOVE LOW NEGATIVE MODEL_______________________________________ 
 
   # adding controls
-a_lo_neg_edge_c = pd.concat([pd.DataFrame(a_lo_neg_edge),pd.concat([df_lo[["sex", "tanner", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==0]], axis=1).set_index(pd.DataFrame(a_lo_neg_edge).index)],axis=1)
+a_lo_neg_edge_c = pd.concat([pd.DataFrame(a_lo_neg_edge),pd.concat([df_lo[["sex", "tanner", "race", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==0]], axis=1).set_index(pd.DataFrame(a_lo_neg_edge).index)],axis=1)
 
   # ML model
 from joblib import parallel_backend
@@ -1511,7 +1511,7 @@ plt.tight_layout(),plt.show(), plt.close()
 ## COGNITIVE LOW POSITIVE MODEL__________________________________
 
   # adding controls
-c_lo_pos_edge_c = pd.concat([pd.DataFrame(c_lo_pos_edge),pd.concat([df_lo[["sex", "tanner", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==0]], axis=1).set_index(pd.DataFrame(c_lo_pos_edge).index)],axis=1)
+c_lo_pos_edge_c = pd.concat([pd.DataFrame(c_lo_pos_edge),pd.concat([df_lo[["sex", "tanner", "race", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==0]], axis=1).set_index(pd.DataFrame(c_lo_pos_edge).index)],axis=1)
 
   # ML model
 from joblib import parallel_backend
@@ -1655,7 +1655,7 @@ plt.tight_layout(),plt.show(), plt.close()
 
 ## COGNITIVE LOW NEGATIVE MODEL_________________________________________
   # adding controls
-c_lo_neg_edge_c = pd.concat([pd.DataFrame(c_lo_neg_edge),pd.concat([df_lo[["sex", "tanner", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==0]], axis=1).set_index(pd.DataFrame(c_lo_neg_edge).index)],axis=1)
+c_lo_neg_edge_c = pd.concat([pd.DataFrame(c_lo_neg_edge),pd.concat([df_lo[["sex", "tanner", "race", "CBCL_EXTERNALIZING_RAW"]], head_m_ave.loc[df['hi_all_rc'] ==0]], axis=1).set_index(pd.DataFrame(c_lo_neg_edge).index)],axis=1)
 
   # ML model
 from joblib import parallel_backend
