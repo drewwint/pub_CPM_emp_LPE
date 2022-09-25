@@ -359,37 +359,65 @@ df.groupby(["hi_all_rc","sex"]).size().unstack(fill_value=0)
   
 
 # TESTING FOR GROUP DIFFERENCES
+# X2 tests
+from scipy.stats import chisquare
+  # sex
+pd.DataFrame(chisquare(df.groupby(["hi_all_rc","sex"]).size().unstack(fill_value=0), axis= 1), columns = ["sex: non-LPE","sex: LPE"], index= ["x2","p-val"]).T
+  # race
+pd.DataFrame(chisquare(df.groupby(["hi_all_rc","race"]).size().unstack(fill_value=0), axis= 1), columns = ["race: non-LPE","race: LPE"], index= ["x2","p-val"]).T
+
+
+# T-tests
 from scipy.stats import ttest_ind
 rng = np.random.default_rng()
 
-ttest_ind(df.hi_all_rc,
-          df.PERSPECTIVE_TAKING, 
-          permutations=10000,random_state=rng
+ttest_ind(df[df['hi_all_rc'] ==0].age,
+          df[df['hi_all_rc'] ==1].age, 
+          permutations=10000,
+          random_state=rng
           )
 
-ttest_ind(df.hi_all_rc,
-          df.EMPATHIC_CONCERN, 
-          permutations=10000,random_state=rng
+ttest_ind(df[df['hi_all_rc'] ==0].tanner,
+          df[df['hi_all_rc'] ==1].tanner, 
+          permutations=10000,
+          random_state=rng
           )
 
-ttest_ind(df.hi_all_rc,
-          df.ICUY_TOTAL, 
-          permutations=10000,random_state=rng
+ttest_ind(df[df['hi_all_rc'] ==0].PERSPECTIVE_TAKING,
+          df[df['hi_all_rc'] ==1].PERSPECTIVE_TAKING, 
+          permutations=10000,
+          random_state=rng
           )
 
-ttest_ind(df.hi_all_rc,
-          df.YSR_EXTERNALIZING_RAW, 
-          permutations=10000,random_state=rng
+ttest_ind(df[df['hi_all_rc'] ==0].EMPATHIC_CONCERN,
+          df[df['hi_all_rc'] ==1].EMPATHIC_CONCERN, 
+          permutations=10000,
+          random_state=rng
           )
 
-    ## the LPE group is higher on every metric here
+ttest_ind(df[df['hi_all_rc'] ==0].ICUY_TOTAL,
+          df[df['hi_all_rc'] ==1].ICUY_TOTAL, 
+          permutations=10000,
+          random_state=rng
+          )
 
+ttest_ind(df[df['hi_all_rc'] ==0].YSR_EXTERNALIZING_RAW,
+          df[df['hi_all_rc'] ==1].YSR_EXTERNALIZING_RAW, 
+          permutations=10000,
+          random_state=rng
+          )
 
 
 
                                 #### DEMOGRAPHICS ####
 # CONTINUOUS VARS
-pd.DataFrame(df[["age", "tanner" , "ICUY_TOTAL", "YSR_EXTERNALIZING_RAW"]].describe()).iloc[[1,2,3,7],:]
+pd.DataFrame(df[["age",
+                "tanner",
+                "PERSPECTIVE_TAKING",
+                "EMPATHIC_CONCERN",
+                "ICUY_TOTAL",
+                "YSR_EXTERNALIZING_RAW"]].describe()).iloc[[1,2,3,7],:]
+
 
 # SEX = MALE
 pd.concat([pd.DataFrame({"male":df.sex.value_counts()}), pd.DataFrame({"%": df.sex.value_counts()/86})], axis = 1)
@@ -398,7 +426,63 @@ pd.concat([pd.DataFrame({"male":df.sex.value_counts()}), pd.DataFrame({"%": df.s
 pd.concat([pd.DataFrame({"White": df.race.value_counts()}), pd.DataFrame({"%": df.race.value_counts()/86})], axis = 1)
 
 
+# correlations
+pd.DataFrame(df[["sex",
+                "race",
+                "age",
+                "tanner",
+                "PERSPECTIVE_TAKING",
+                "EMPATHIC_CONCERN",
+                "ICUY_TOTAL",
+                "YSR_EXTERNALIZING_RAW"]]).corr()
 
+
+    # p values
+def calculate_pvalues(df):
+    from scipy.stats import pearsonr
+    import pandas as pd
+    df = df.dropna()._get_numeric_data()
+    dfcols = pd.DataFrame(columns=df.columns)
+    pvalues = dfcols.transpose().join(dfcols, how='outer')
+    for r in df.columns:
+        for c in df.columns:
+            pvalues[r][c] = round(pearsonr(df[r], df[c])[1], 4)
+    return pvalues
+
+
+calculate_pvalues(pd.DataFrame(df[["sex",
+                "race",
+                "age",
+                "tanner",
+                "PERSPECTIVE_TAKING",
+                "EMPATHIC_CONCERN",
+                "ICUY_TOTAL",
+                "YSR_EXTERNALIZING_RAW"]]))
+
+
+## By LPE demographics
+  # agregating summary stats by 
+pd.set_option('display.max_columns', None)
+df[["hi_all_rc",
+          "age",
+          "tanner",
+          "PERSPECTIVE_TAKING",
+          "EMPATHIC_CONCERN",
+          "ICUY_TOTAL",
+          "YSR_EXTERNALIZING_RAW"]].groupby("hi_all_rc").describe().loc[:,(slice(None),['mean','std'])].T
+
+  # group by table by sex
+df.groupby(["hi_all_rc","sex"]).size().unstack(fill_value=0)
+df.groupby(["hi_all_rc","sex"]).size().unstack(fill_value=0)/86
+  # group table by race
+df.groupby(["hi_all_rc","race"]).size().unstack(fill_value=0)
+df.groupby(["hi_all_rc","race"]).size().unstack(fill_value=0)/86
+  
+
+
+
+
+              #### EXTRACTING EMPATHY BY LPE ####
 
 # SUBSETTING DATAFRAMES BY LPE
   # high
