@@ -1308,41 +1308,41 @@ a_lo_pos_edge_c = pd.concat([pd.DataFrame(a_lo_pos_edge),pd.concat([df_lo[["sex"
   # ML model
 from joblib import parallel_backend
 with parallel_backend('threading', n_jobs=12): 
-  aff_lo_pos_res = cross_validate(model_s, a_lo_pos_edge_c, a_emp_lo, cv=outer_cv, scoring={'pos_mean_squared_error','r2','pos_mean_absolute_error'}, return_train_score=True)
+  aff_lo_pos_res = cross_validate(model_s, a_lo_pos_edge_c, a_emp_lo, cv=outer_cv, scoring={'neg_mean_squared_error','r2','neg_mean_absolute_error'}, return_train_score=True)
 
 
   # Training data score
 print(f"The mean train MSE using nested cross-validation is: "
-      f"{-aff_lo_pos_res['train_pos_mean_squared_error'].mean():.3f} +/- {aff_lo_pos_res['train_pos_mean_squared_error'].std():.3f}",
+      f"{-aff_lo_pos_res['train_neg_mean_squared_error'].mean():.3f} +/- {aff_lo_pos_res['train_neg_mean_squared_error'].std():.3f}",
       "\n",
       f"The mean train R2 using nested cross-validation is: "
       f"{aff_lo_pos_res['train_r2'].mean():.3f} +/- {aff_lo_pos_res['train_r2'].std():.3f}",
       "\n",
       f"The mean train absolute mean error using nested cross-validation is: "
-      f"{-aff_lo_pos_res['train_pos_mean_absolute_error'].mean():.3f} +/- {aff_lo_pos_res['train_pos_mean_absolute_error'].std():.3f}")
+      f"{-aff_lo_pos_res['train_neg_mean_absolute_error'].mean():.3f} +/- {aff_lo_pos_res['train_neg_mean_absolute_error'].std():.3f}")
 
 
   # Test data score
 print(f"The mean test MSE using nested cross-validation is: "
-      f"{-aff_lo_pos_res['test_pos_mean_squared_error'].mean():.3f} +/- {aff_lo_pos_res['test_pos_mean_squared_error'].std():.3f}",
+      f"{-aff_lo_pos_res['test_neg_mean_squared_error'].mean():.3f} +/- {aff_lo_pos_res['test_neg_mean_squared_error'].std():.3f}",
       "\n",
       f"The mean test R2 using nested cross-validation is: "
       f"{aff_lo_pos_res['test_r2'].mean():.3f} +/- {aff_lo_pos_res['test_r2'].std():.3f}",
       "\n",
       f"The mean test absolute mean error using nested cross-validation is: "
-      f"{-aff_lo_pos_res['test_pos_mean_absolute_error'].mean():.3f} +/- {aff_lo_pos_res['test_pos_mean_absolute_error'].std():.3f}")
+      f"{-aff_lo_pos_res['test_neg_mean_absolute_error'].mean():.3f} +/- {aff_lo_pos_res['test_neg_mean_absolute_error'].std():.3f}")
 
 
 
   # Comparing CV results to a dummy model
-errors_ridge_regressor = pd.Series(abs(aff_lo_pos_res['test_pos_mean_squared_error']), name="Regressor")
+errors_ridge_regressor = pd.Series(abs(aff_lo_pos_res['test_neg_mean_squared_error']), name="Regressor")
 
 
 from sklearn.dummy import DummyRegressor
 dummy_model = make_pipeline( StandardScaler(),DummyRegressor(strategy="mean")) 
 
 result_dummy = cross_validate(
-    dummy_model, a_lo_pos_edge_c, a_emp_lo, cv=outer_cv, scoring="pos_mean_squared_error")
+    dummy_model, a_lo_pos_edge_c, a_emp_lo, cv=outer_cv, scoring="neg_mean_squared_error")
 
 
 errors_dummy_regressor = pd.Series(
@@ -1355,6 +1355,7 @@ aff_lo_pos_errors = pd.concat(
     axis=1,
 )
 aff_lo_pos_errors
+
 
 
 
