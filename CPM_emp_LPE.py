@@ -2432,265 +2432,188 @@ ttest_ind(den_hi,
 
                   #### T-tests for Affective Density 
 
-
-  ## DMN
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "DMN")[0],np.where(a_hi_neg_con.index == "DMN")[0]], axis= 1),
-          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "DMN")[0],np.where(a_lo_neg_con.index == "DMN")[0]], axis= 1), 
-          permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "DMN")[0],np.where(a_hi_pos_con.index == "DMN")[0]], axis= 1),
+aa= pd.DataFrame({"DMN (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "DMN")[0],np.where(a_hi_pos_con.index == "DMN")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "DMN")[0],np.where(a_lo_pos_con.index == "DMN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## ECN
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "ECN")[0],np.where(a_hi_neg_con.index == "ECN")[0]], axis= 1),
-          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "ECN")[0],np.where(a_lo_neg_con.index == "ECN")[0]], axis= 1), 
+          ),"DMN (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "DMN")[0],np.where(a_hi_neg_con.index == "DMN")[0]], axis= 1),
+          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "DMN")[0],np.where(a_lo_neg_con.index == "DMN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "ECN")[0],np.where(a_hi_pos_con.index == "ECN")[0]], axis= 1),
+          ),  "ECN (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "ECN")[0],np.where(a_hi_pos_con.index == "ECN")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "ECN")[0],np.where(a_lo_pos_con.index == "ECN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## SAL
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "SAL")[0],np.where(a_hi_neg_con.index == "SAL")[0]], axis= 1),
-          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "SAL")[0],np.where(a_lo_neg_con.index == "SAL")[0]], axis= 1), 
+          ),"ECN (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "ECN")[0],np.where(a_hi_neg_con.index == "ECN")[0]], axis= 1),
+          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "ECN")[0],np.where(a_lo_neg_con.index == "ECN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "SAL")[0],np.where(a_hi_pos_con.index == "SAL")[0]], axis= 1),
+          ), "SAL (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "SAL")[0],np.where(a_hi_pos_con.index == "SAL")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "SAL")[0],np.where(a_lo_pos_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## SMN
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "SMN")[0],np.where(a_hi_neg_con.index == "SMN")[0]], axis= 1),
-          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "SMN")[0],np.where(a_lo_neg_con.index == "SMN")[0]], axis= 1), 
+          ), "SAL (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "SAL")[0],np.where(a_hi_neg_con.index == "SAL")[0]], axis= 1),
+          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "SAL")[0],np.where(a_lo_neg_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "SMN")[0],np.where(a_hi_pos_con.index == "SMN")[0]], axis= 1),
+          ), "SMN (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "SMN")[0],np.where(a_hi_pos_con.index == "SMN")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "SMN")[0],np.where(a_lo_pos_con.index == "SMN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## Limbic 
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "Limbic")[0],np.where(a_hi_neg_con.index == "Limbic")[0]], axis= 1),
-          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "Limbic")[0],np.where(a_lo_neg_con.index == "Limbic")[0]], axis= 1), 
+          ), "SMN (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "SMN")[0],np.where(a_hi_neg_con.index == "SMN")[0]], axis= 1),
+          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "SMN")[0],np.where(a_lo_neg_con.index == "SMN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "Limbic")[0],np.where(a_hi_pos_con.index == "Limbic")[0]], axis= 1),
+          ), "Limbic (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "Limbic")[0],np.where(a_hi_pos_con.index == "Limbic")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "Limbic")[0],np.where(a_lo_pos_con.index == "Limbic")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-  ## Occipital
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "Occipital")[0],np.where(a_hi_neg_con.index == "Occipital")[0]], axis= 1),
-          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "Occipital")[0],np.where(a_lo_neg_con.index == "Occipital")[0]], axis= 1), 
+          ), "Limbic (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "Limbic")[0],np.where(a_hi_neg_con.index == "Limbic")[0]], axis= 1),
+          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "Limbic")[0],np.where(a_lo_neg_con.index == "Limbic")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "Occipital")[0],np.where(a_hi_pos_con.index == "Occipital")[0]], axis= 1),
+          ), "Occipital (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "Occipital")[0],np.where(a_hi_pos_con.index == "Occipital")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "Occipital")[0],np.where(a_lo_pos_con.index == "Occipital")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-  ## Cerebellar
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "Cerebellar")[0],np.where(a_hi_neg_con.index == "Cerebellar")[0]], axis= 1),
-          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "Cerebellar")[0],np.where(a_lo_neg_con.index == "Cerebellar")[0]], axis= 1), 
+          ), "Occipital (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "Occipital")[0],np.where(a_hi_neg_con.index == "Occipital")[0]], axis= 1),
+          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "Occipital")[0],np.where(a_lo_neg_con.index == "Occipital")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "Cerebellar")[0],np.where(a_hi_pos_con.index == "Cerebellar")[0]], axis= 1),
+          ), "Cerebellar (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "Cerebellar")[0],np.where(a_hi_pos_con.index == "Cerebellar")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "Cerebellar")[0],np.where(a_lo_pos_con.index == "Cerebellar")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## DMN - ECN
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "DMN")[0],np.where(a_hi_neg_con.index == "ECN")[0]], axis= 1),
-          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "DMN")[0],np.where(a_lo_neg_con.index == "ECN")[0]], axis= 1), 
+          ), "Cerebellar (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "Cerebellar")[0],np.where(a_hi_neg_con.index == "Cerebellar")[0]], axis= 1),
+          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "Cerebellar")[0],np.where(a_lo_neg_con.index == "Cerebellar")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "DMN")[0],np.where(a_hi_pos_con.index == "ECN")[0]], axis= 1),
+          ), "ECN-DMN (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "DMN")[0],np.where(a_hi_pos_con.index == "ECN")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "DMN")[0],np.where(a_lo_pos_con.index == "ECN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## DMN - SAL
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "DMN")[0],np.where(a_hi_neg_con.index == "SAL")[0]], axis= 1),
-          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "DMN")[0],np.where(a_lo_neg_con.index == "SAL")[0]], axis= 1), 
+          ), "ECN-DMN (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "DMN")[0],np.where(a_hi_neg_con.index == "ECN")[0]], axis= 1),
+          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "DMN")[0],np.where(a_lo_neg_con.index == "ECN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "DMN")[0],np.where(a_hi_pos_con.index == "SAL")[0]], axis= 1),
+          ), "SAL-DMN (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "DMN")[0],np.where(a_hi_pos_con.index == "SAL")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "DMN")[0],np.where(a_lo_pos_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-  ## ECN - SAL
-ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "ECN")[0],np.where(a_hi_neg_con.index == "SAL")[0]], axis= 1),
+          ),  "SAL-ECN (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "ECN")[0],np.where(a_hi_neg_con.index == "SAL")[0]], axis= 1),
           np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "ECN")[0],np.where(a_lo_neg_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "ECN")[0],np.where(a_hi_pos_con.index == "SAL")[0]], axis= 1),
+          ),  "SAL-ECN (+)":ttest_ind(np.sum(a_hi_pos_con.iloc[np.where(a_hi_pos_con.index == "ECN")[0],np.where(a_hi_pos_con.index == "SAL")[0]], axis= 1),
           np.sum(a_lo_pos_con.iloc[np.where(a_lo_pos_con.index == "ECN")[0],np.where(a_lo_pos_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-
-                    #### T-tests for Cognitive Density
-
-
-
-
-  ## DMN
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "DMN")[0],np.where(c_hi_neg_con.index == "DMN")[0]], axis= 1),
-          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "DMN")[0],np.where(c_lo_neg_con.index == "DMN")[0]], axis= 1), 
+          ),"SAL-DMN (-)":ttest_ind(np.sum(a_hi_neg_con.iloc[np.where(a_hi_neg_con.index == "DMN")[0],np.where(a_hi_neg_con.index == "SAL")[0]], axis= 1),
+          np.sum(a_lo_neg_con.iloc[np.where(a_lo_neg_con.index == "DMN")[0],np.where(a_lo_neg_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
+          )}, index= ["t","p-perm"]).T
+aa
 
 
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "DMN")[0],np.where(c_hi_pos_con.index == "DMN")[0]], axis= 1),
+
+aa["Network"] = np.repeat(["DMN", "ECN", "SAL", "SMN", "Limbic", "Occipital", "Cerebellar", "ECN-DMN", "SAL-DMN", "SAL-ECN"], 2, axis=0)
+
+
+# np.repeat(np.array(range(1,11)), 2, axis=0)
+
+sns.barplot(x=aa.t,y=aa.index, hue = aa.Network, dodge = False)
+  plt.xlim(-16,5)
+  plt.text(-2.9,.6 ,"*", fontsize = 14)
+  plt.text(-5.9,1.6 ,"*", fontsize = 14)
+  plt.text(-8.3,3.6 ,"*", fontsize = 14)
+  plt.text(-7.1,4.6 ,"*", fontsize = 14)
+  plt.text(-8,7.6 ,"*", fontsize = 14)
+  plt.text(-8.2,9.6 ,"*", fontsize = 14)
+  plt.text(4.1,11.6 ,"*", fontsize = 14)
+  plt.text(-8.1,13.6 ,"*", fontsize = 14)
+  plt.text(-5.2,15.6 ,"*", fontsize = 14)
+  plt.text(-4.05,16.6 ,"*", fontsize = 14)
+  plt.text(-4.4,18.6 ,"*", fontsize = 14)
+  plt.title("Affective Model Density t-tests Between LPE and Non-LPE")
+  plt.legend([],[], frameon=False)
+  # plt.savefig(r"C:\Users\wintersd\OneDrive - The University of Colorado Denver\1 Publications\conn_pred_emp_ML\figures\bar_aff.tiff", dpi=700)
+  plt.show(), plt.close()
+
+
+
+
+
+
+bb = pd.DataFrame({"DMN (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "DMN")[0],np.where(c_hi_pos_con.index == "DMN")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "DMN")[0],np.where(c_lo_pos_con.index == "DMN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## ECN
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "ECN")[0],np.where(c_hi_neg_con.index == "ECN")[0]], axis= 1),
-          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "ECN")[0],np.where(c_lo_neg_con.index == "ECN")[0]], axis= 1), 
+          ),"DMN (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "DMN")[0],np.where(c_hi_neg_con.index == "DMN")[0]], axis= 1),
+          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "DMN")[0],np.where(c_lo_neg_con.index == "DMN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "ECN")[0],np.where(c_hi_pos_con.index == "ECN")[0]], axis= 1),
+          ),  "ECN (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "ECN")[0],np.where(c_hi_pos_con.index == "ECN")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "ECN")[0],np.where(c_lo_pos_con.index == "ECN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## SAL
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "SAL")[0],np.where(c_hi_neg_con.index == "SAL")[0]], axis= 1),
-          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "SAL")[0],np.where(c_lo_neg_con.index == "SAL")[0]], axis= 1), 
+          ),"ECN (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "ECN")[0],np.where(c_hi_neg_con.index == "ECN")[0]], axis= 1),
+          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "ECN")[0],np.where(c_lo_neg_con.index == "ECN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "SAL")[0],np.where(c_hi_pos_con.index == "SAL")[0]], axis= 1),
+          ), "SAL (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "SAL")[0],np.where(c_hi_pos_con.index == "SAL")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "SAL")[0],np.where(c_lo_pos_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## SMN
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "SMN")[0],np.where(c_hi_neg_con.index == "SMN")[0]], axis= 1),
-          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "SMN")[0],np.where(c_lo_neg_con.index == "SMN")[0]], axis= 1), 
+          ), "SAL (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "SAL")[0],np.where(c_hi_neg_con.index == "SAL")[0]], axis= 1),
+          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "SAL")[0],np.where(c_lo_neg_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "SMN")[0],np.where(c_hi_pos_con.index == "SMN")[0]], axis= 1),
+          ), "SMN (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "SMN")[0],np.where(c_hi_pos_con.index == "SMN")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "SMN")[0],np.where(c_lo_pos_con.index == "SMN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## Limbic 
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "Limbic")[0],np.where(c_hi_neg_con.index == "Limbic")[0]], axis= 1),
-          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "Limbic")[0],np.where(c_lo_neg_con.index == "Limbic")[0]], axis= 1), 
+          ), "SMN (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "SMN")[0],np.where(c_hi_neg_con.index == "SMN")[0]], axis= 1),
+          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "SMN")[0],np.where(c_lo_neg_con.index == "SMN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "Limbic")[0],np.where(c_hi_pos_con.index == "Limbic")[0]], axis= 1),
+          ), "Limbic (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "Limbic")[0],np.where(c_hi_pos_con.index == "Limbic")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "Limbic")[0],np.where(c_lo_pos_con.index == "Limbic")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-  ## Occipital
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "Occipital")[0],np.where(c_hi_neg_con.index == "Occipital")[0]], axis= 1),
-          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "Occipital")[0],np.where(c_lo_neg_con.index == "Occipital")[0]], axis= 1), 
+          ), "Limbic (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "Limbic")[0],np.where(c_hi_neg_con.index == "Limbic")[0]], axis= 1),
+          np.sum(pd.concat([pd.DataFrame(np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "Limbic")[0],np.where(c_lo_neg_con.index == "Limbic")[0]], axis= 1)), pd.DataFrame({"0": 56}, index = ["Limbic"])], axis = 0), axis = 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "Occipital")[0],np.where(c_hi_pos_con.index == "Occipital")[0]], axis= 1),
+          ), "Occipital (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "Occipital")[0],np.where(c_hi_pos_con.index == "Occipital")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "Occipital")[0],np.where(c_lo_pos_con.index == "Occipital")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-  ## Cerebellar
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "Cerebellar")[0],np.where(c_hi_neg_con.index == "Cerebellar")[0]], axis= 1),
-          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "Cerebellar")[0],np.where(c_lo_neg_con.index == "Cerebellar")[0]], axis= 1), 
+          ), "Occipital (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "Occipital")[0],np.where(c_hi_neg_con.index == "Occipital")[0]], axis= 1),
+          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "Occipital")[0],np.where(c_lo_neg_con.index == "Occipital")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "Cerebellar")[0],np.where(c_hi_pos_con.index == "Cerebellar")[0]], axis= 1),
+          ), "Cerebellar (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "Cerebellar")[0],np.where(c_hi_pos_con.index == "Cerebellar")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "Cerebellar")[0],np.where(c_lo_pos_con.index == "Cerebellar")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## DMN - ECN
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "DMN")[0],np.where(c_hi_neg_con.index == "ECN")[0]], axis= 1),
-          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "DMN")[0],np.where(c_lo_neg_con.index == "ECN")[0]], axis= 1), 
+          ), "Cerebellar (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "Cerebellar")[0],np.where(c_hi_neg_con.index == "Cerebellar")[0]], axis= 1),
+          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "Cerebellar")[0],np.where(c_lo_neg_con.index == "Cerebellar")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "DMN")[0],np.where(c_hi_pos_con.index == "ECN")[0]], axis= 1),
+          ), "ECN-DMN (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "DMN")[0],np.where(c_hi_pos_con.index == "ECN")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "DMN")[0],np.where(c_lo_pos_con.index == "ECN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-  ## DMN - SAL
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "DMN")[0],np.where(c_hi_neg_con.index == "SAL")[0]], axis= 1),
-          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "DMN")[0],np.where(c_lo_neg_con.index == "SAL")[0]], axis= 1), 
+          ), "ECN-DMN (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "DMN")[0],np.where(c_hi_neg_con.index == "ECN")[0]], axis= 1),
+          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "DMN")[0],np.where(c_lo_neg_con.index == "ECN")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "DMN")[0],np.where(c_hi_pos_con.index == "SAL")[0]], axis= 1),
+          ), "SAL-DMN (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "DMN")[0],np.where(c_hi_pos_con.index == "SAL")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "DMN")[0],np.where(c_lo_pos_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-  ## ECN - SAL
-ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "ECN")[0],np.where(c_hi_neg_con.index == "SAL")[0]], axis= 1),
+          ),  "SAL-ECN (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "ECN")[0],np.where(c_hi_neg_con.index == "SAL")[0]], axis= 1),
           np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "ECN")[0],np.where(c_lo_neg_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
-
-
-ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "ECN")[0],np.where(c_hi_pos_con.index == "SAL")[0]], axis= 1),
+          ),  "SAL-ECN (+)":ttest_ind(np.sum(c_hi_pos_con.iloc[np.where(c_hi_pos_con.index == "ECN")[0],np.where(c_hi_pos_con.index == "SAL")[0]], axis= 1),
           np.sum(c_lo_pos_con.iloc[np.where(c_lo_pos_con.index == "ECN")[0],np.where(c_lo_pos_con.index == "SAL")[0]], axis= 1), 
           permutations=10000,random_state=rng
-          )
+          ),"SAL-DMN (-)":ttest_ind(np.sum(c_hi_neg_con.iloc[np.where(c_hi_neg_con.index == "DMN")[0],np.where(c_hi_neg_con.index == "SAL")[0]], axis= 1),
+          np.sum(c_lo_neg_con.iloc[np.where(c_lo_neg_con.index == "DMN")[0],np.where(c_lo_neg_con.index == "SAL")[0]], axis= 1), 
+          permutations=10000,random_state=rng
+          )}, index= ["t","p-perm"]).T
+bb
+
+
+
+bb["Network"] = np.repeat(["DMN", "ECN", "SAL", "SMN", "Limbic", "Occipital", "Cerebellar", "ECN-DMN", "SAL-DMN", "SAL-ECN"], 2, axis=0)
+
+
+# np.repeat(np.array(range(1,11)), 2, axis=0)
+
+sns.barplot(x=bb.t,y=bb.index, hue = bb.Network, dodge = False)
+  plt.xlim(-17,5)
+  plt.text(-5.9,.6 ,"*", fontsize = 14)
+  plt.text(-8.7,1.6 ,"*", fontsize = 14)
+  plt.text(2.6,2.6 ,"*", fontsize = 14)
+  plt.text(-11.3,4.6 ,"*", fontsize = 14)
+  plt.text(-4.5,6.6 ,"*", fontsize = 14)
+  plt.text(-9.4,8.6 ,"*", fontsize = 14)
+  plt.text(2.5,11.6 ,"*", fontsize = 14)
+  plt.text(-7.1,12.6 ,"*", fontsize = 14)
+  plt.text(-3.7,13.6 ,"*", fontsize = 14)
+  plt.text(3.1,14.6 ,"*", fontsize = 14)
+  plt.text(-11.2,16.6 ,"*", fontsize = 14)
+  plt.text(3.4,17.6 ,"*", fontsize = 14)
+  plt.text(-10.5,18.6 ,"*", fontsize = 14)
+  plt.title("Cognitive Model Density t-tests Between LPE and Non-LPE")
+  # plt.savefig(r"C:\Users\wintersd\OneDrive - The University of Colorado Denver\1 Publications\conn_pred_emp_ML\figures\bar_cog.tiff", dpi=700)
+  plt.show(), plt.close()
+
 
 
 
